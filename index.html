@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Yeanhoo's Blogs</title><meta name="description"><meta name="keywords" content="Yeanhoo"><meta name="author" content="Yeanhoo"><meta name="copyright" content="Yeanhoo"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/yeanhoo/img/favicon.png"><link rel="canonical" href="http://yeanhoo.gitee.io/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><meta name="360-site-verification" content="{&quot;theme_color&quot;:{&quot;enable&quot;:true,&quot;main&quot;:&quot;#05050C&quot;,&quot;paginator&quot;:&quot;#EEEEEE&quot;,&quot;button_hover&quot;:&quot;#FF7242&quot;,&quot;text_selection&quot;:&quot;#00c4b6&quot;,&quot;link_color&quot;:&quot;#99a9bf&quot;,&quot;meta_color&quot;:&quot;#858585&quot;,&quot;hr_color&quot;:&quot;#A4D8FA&quot;,&quot;code_foreground&quot;:&quot;#F47466&quot;,&quot;code_background&quot;:&quot;rgba(27, 31, 35, .05)&quot;,&quot;toc_color&quot;:&quot;#EBDEFE&quot;,&quot;blockquote_padding_color&quot;:&quot;#49b1f5&quot;,&quot;blockquote_background_color&quot;:&quot;#7EA9B5&quot;}}"/><meta property="og:type" content="website"><meta property="og:title" content="Yeanhoo's Blogs"><meta property="og:url" content="http://yeanhoo.gitee.io/"><meta property="og:site_name" content="Yeanhoo's Blogs"><meta property="og:description"><meta property="og:image" content="http://yeanhoo.gitee.io/img/favicon.png"><meta property="article:published_time" content="2021-05-26T08:17:09.872Z"><meta property="article:modified_time" content="2021-05-26T08:17:09.872Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = '2'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/yeanhoo/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/yeanhoo/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: {"text":"富强,民主,文明,和谐","fontSize":"15px"},
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: true,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isSidebar: false
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/yeanhoo/atom.xml" title="Yeanhoo's Blogs" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/yeanhoo/img/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/yeanhoo/archives/"><div class="headline">文章</div><div class="length_num">50</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/yeanhoo/tags/"><div class="headline">标签</div><div class="length_num">89</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/yeanhoo/categories/"><div class="headline">分类</div><div class="length_num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/yeanhoo/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/yeanhoo/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/yeanhoo/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><header class="full_page" id="page-header" style="background-image: url(https://gitee.com/yeanhoo/BlogImages/raw/master/img/config.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/yeanhoo/">Yeanhoo's Blogs</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/yeanhoo/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/yeanhoo/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/yeanhoo/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="site-info"><h1 id="site_title">Yeanhoo's Blogs</h1><div id="site_subtitle"><span id="subtitle"></span></div><div id="site_social_icons"><a class="social-icon" href="https://yeanhoo.github.io" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yeanhoo@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div id="scroll_down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout_page" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/yeanhoo/2021/05/24/%E6%B5%B7%E8%8E%B2%E8%8A%B1OceanLotus%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/" title="海莲花OceanLotus样本分析">     <img class="post_bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/0e16-ifrwayx3631565.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" alt="海莲花OceanLotus样本分析"></a></div><div class="recent-post-info"><a class="article-title" href="/yeanhoo/2021/05/24/%E6%B5%B7%E8%8E%B2%E8%8A%B1OceanLotus%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/" title="海莲花OceanLotus样本分析">海莲花OceanLotus样本分析</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-05-24 01:44:59"><i class="far fa-calendar-alt"></i>2021-05-24</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/yeanhoo/categories/%E6%8A%80%E5%B7%A7/">技巧</a></span></div><div class="content">海莲花OceanLotus样本分析基本信息​            APT32是一个至少从2014年开始活跃的威胁组织，别名海莲花(OceanLotus)。该组织针对多个私营企业、外国政府、持不同政见者和记者，重点关注越南、菲律宾、老挝和柬埔寨等东南亚国家。该组织是一个与越南政府利益一致的网络间谍组织。
+
+
+
+FILENAME
+FILESIZE
+MD5
+
+
+
+sample.exe
+23487488 bytes
+09D115A3B45694F8124CD8077D51A2EC
+
+
+流程图
+动态分析使用ProcMon进行抓包,样本释放名为A553.tmp的文件到环境变量TEMP目录，后经查看释放文件是样本母体拷贝到了TEMP目录
+
+释放后执行释放的A553.tmp文件，释放体会将样本母体替换为同名的真实docx文档，并通过注册表查询word文档关联的默认打开程序，使用默认程序打开docx文档迷惑用户
+
+详细分析样本入口点存在混淆代码，干扰分析与调试，排除无意义的跳转逻辑，剩下一个真实的条件跳转，根据判断条件，基本可以断定这个混淆会循环0xF5B2C次，在其地址后下断，直接跑即可到达核心代码 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/yeanhoo/2021/05/05/Ursnif%E7%BB%84%E7%BB%87EXCEL4.0%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/" title="Ursnif组织EXCEL4.0样本分析">     <img class="post_bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021-05-05-1.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" alt="Ursnif组织EXCEL4.0样本分析"></a></div><div class="recent-post-info"><a class="article-title" href="/yeanhoo/2021/05/05/Ursnif%E7%BB%84%E7%BB%87EXCEL4.0%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/" title="Ursnif组织EXCEL4.0样本分析">Ursnif组织EXCEL4.0样本分析</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-05-05 22:11:06"><i class="far fa-calendar-alt"></i>2021-05-05</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/yeanhoo/categories/%E6%8A%80%E5%B7%A7/">技巧</a></span></div><div class="content">Ursnif组织EXCEL4.0样本分析前言Ursnif是一种银行木马，是Gozi恶意软件的变体,主要与数据盗窃有关
+基本信息​            样本为EXCEL4.0宏样本。 VBA是在Excel 5.0版中引入的，Excel 4.0宏（XLM）功能是在1992年的Excel版本4.0中引入的。因此这些较旧的XLM宏也称为Excel 4宏。 要使用Excel 4.0宏，不需要任何编程。 可以像功能一样使用它们 。 如果将它们与已定义的名称结合使用，可以实现非常有用的功能。而不怀好意的人正是利用这点来编写恶意的EXCEL4.0宏代码。而且这种方式产生的效果也让人意想不到，因为部分杀软并未对宏4.0进行良好的监控。
+
+
+
+FileName
+MD5
+FileSize
+
+
+
+Abusech_ursnif.xls
+0DD976DE7791A9839F9BC1EF3B9AD2E9
+202240 bytes
+
+
+流程图excel样本执行宏代码从远程服务器下载恶意程序并执行
+
+详细分析使用olevba.py工具提取宏代码，存在大量隐藏sheet页面
+1234567891011121314151 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/yeanhoo/2021/04/26/SSDT_HOOK/" title="SSDT_HOOK">     <img class="post_bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/20210426-1zgf.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" alt="SSDT_HOOK"></a></div><div class="recent-post-info"><a class="article-title" href="/yeanhoo/2021/04/26/SSDT_HOOK/" title="SSDT_HOOK">SSDT_HOOK</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-26 23:07:23"><i class="far fa-calendar-alt"></i>2021-04-26</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/yeanhoo/categories/C-C/">C\C++</a></span></div><div class="content">SSDT_HOOKSSDT  原理其实很简单，首先通过API拿到ETRHEAD结构地址，通过结构成员拿到ServiceTable表，_KSERVICE_TABLE_DESCRIPTOR(ServiceTable)中第一项指向的内容就是SSDT _KSYSTEM_SERVICE_TABLE
+12345678typedef struct _KSYSTEM_SERVICE_TABLE&#123;	PULONG	ServiceTableBase;&#x2F;&#x2F;函数地址表首地址	PULONG	ServiceCounterTableBase;&#x2F;&#x2F;函数表中每个函数被调用次数	ULONG	NumberOfService;&#x2F;&#x2F;服务函数个数	ULONG	ParamTableBse;&#x2F;&#x2F;参数个数表首地址&#125;KSYSTEM_SERVICE_TABLE,*PKSYSTEM_SERVICE_TABLE;
+
+代码已开源：点击访问
+
+windbg查看记录一下ETHREAD及EPROCESS结构体
+ETHREAD(执行体线程块)结构内嵌了KT ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/yeanhoo/2021/04/24/IDA--pthon%E5%AD%A6%E4%B9%A0--%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F%E5%8E%BB%E6%B7%B7%E6%B7%86/" title="IDA--pthon学习--函数变量去混淆">     <img class="post_bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021-04-24-2.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" alt="IDA--pthon学习--函数变量去混淆"></a></div><div class="recent-post-info"><a class="article-title" href="/yeanhoo/2021/04/24/IDA--pthon%E5%AD%A6%E4%B9%A0--%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F%E5%8E%BB%E6%B7%B7%E6%B7%86/" title="IDA--pthon学习--函数变量去混淆">IDA--pthon学习--函数变量去混淆</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-24 21:29:25"><i class="far fa-calendar-alt"></i>2021-04-24</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/yeanhoo/categories/%E6%8A%80%E5%B7%A7/">技巧</a></span></div><div class="content">IDA–pthon学习–函数变量去混淆简介IDA python在2004年被开发出来，其目的是为了将python语言的简洁强大和IDA支持的IDC语言结合起来。
+IDA python其实主要用到的如下三个模块：
+1231. idc：这是兼容idc函数的模块  2. idautils：大多数处理都是需要依托于这个模块  3. idaapi：允许使用者通过类的形式，访问更多底层的数据
+
+常用函数12345678910for func in idautils.Functions():#遍历函数idaapi.get_func(func_addr)#解析函数idc.GetMnem(start)#获取指令操作码idc.print_operand(start, 0)#可以理解为目的操作数idc.get_operand_value(start, 1)#可以理解为源操作数idc.get_item_size(start)#获取指令长度idc.GetFunctionName(func)#获取函数名称idc.GetDisasm(start)#获取反汇编idc.SegName()#获取数据段名称idc.GetO ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/yeanhoo/2021/04/10/VAD%E6%A6%82%E5%BF%B5/" title="VAD概念">     <img class="post_bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021-04-24-1.jpeg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" alt="VAD概念"></a></div><div class="recent-post-info"><a class="article-title" href="/yeanhoo/2021/04/10/VAD%E6%A6%82%E5%BF%B5/" title="VAD概念">VAD概念</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-10 15:41:08"><i class="far fa-calendar-alt"></i>2021-04-10</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/yeanhoo/categories/%E6%8A%80%E5%B7%A7/">技巧</a></span></div><div class="content">VAD概念简介VAD其实没有过于复杂，由于本人总是忘记，遂写个记录方便以后查询.
+内存分为物理内存和虚拟内存；操作系统和进程共享物理内存，进程独享虚拟内存；物理内存可以通过CR3寄存器在进程之间互相隔离，确保进程之间互不侵犯；2位下，每个进程独享4GB内存，怎么知道哪些内存已经使用过，windwos采用virtual address descripot自平衡二叉树来管理虚拟内存，低端的内存地址放在根节点左子树，高端内存地址放根节点右子树，大致的结构如下：每当进程调用virtualAlloc分配虚拟内存时，操作系统会先遍历这个树，看看还有哪些地方的虚拟内存还未使用
+64位环境下查找VAD在EPROCESS结构中保存着VadRoot根节点
+12345678910111213kd&gt; dt _EPROCESSnt!_EPROCESS   +0x000 Pcb              : _KPROCESS   +0x160 ProcessLock      : _EX_PUSH_LOCK   +0x168 CreateTime       : _LARGE_INTEGER  [...] ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/yeanhoo/2021/04/02/%E8%B0%83%E8%AF%95%E5%99%A8%E5%9F%BA%E7%A1%800x2(%E8%B0%83%E8%AF%95%E5%99%A8%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86)/" title="调试器基础0x2(调试器框架基础知识)">     <img class="post_bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021_04_02_zl.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" alt="调试器基础0x2(调试器框架基础知识)"></a></div><div class="recent-post-info"><a class="article-title" href="/yeanhoo/2021/04/02/%E8%B0%83%E8%AF%95%E5%99%A8%E5%9F%BA%E7%A1%800x2(%E8%B0%83%E8%AF%95%E5%99%A8%E6%A1%86%E6%9E%B6%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86)/" title="调试器基础0x2(调试器框架基础知识)">调试器基础0x2(调试器框架基础知识)</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-02 23:08:49"><i class="far fa-calendar-alt"></i>2021-04-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/yeanhoo/categories/C-C/">C\C++</a></span></div><div class="content">调试器基础0x2(调试器框架基础知识)创建/附加调试器首先需要实现的功能是能够附加到正在运行的进程或者创建一个被调试进程，当然，调试器必须与被调试进程具有交互的能力，这样调试器才能用来操作被调试进程。可以通过DebugActiveProcess函数并指定目标的进程标识符来实现的。或者，也可以通过调用CreateProcess来完成带有DEBUG_PROCESS或DEBUG_ONLY_THIS_PROCESS创建标志。后一种方法将创建一个新进程并将其附加到该进程，而不是附加到已在系统上运行的进程。附加后，调试器可以使用DebugSetProcessKillOnExit指定有关是否在分离时终止进程的策略。最后，分离过程是对DebugActiveProcessStop的直接调用。
+调试循环调试器的核心组件是调试循环。 这是负责等待调试事件，处理所述事件，然后等待下一个事件（即循环）的部分。 在Windows平台上，这非常简单。 实际上，它非常简单，微软就此步骤需要完成的工作编写了一个简短的调试循环Demo页面。 大致步骤是（在一个循环中）调试器调用WaitForDebugEvent ，它等待 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/yeanhoo/2021/04/02/%E8%B0%83%E8%AF%95%E5%99%A8%E5%9F%BA%E7%A1%800x1(%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E4%BB%A3%E7%A0%81%E6%80%9D%E8%B7%AF)/" title="调试器基础0x1(环境配置-代码思路)">     <img class="post_bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021_04_02_zl.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" alt="调试器基础0x1(环境配置-代码思路)"></a></div><div class="recent-post-info"><a class="article-title" href="/yeanhoo/2021/04/02/%E8%B0%83%E8%AF%95%E5%99%A8%E5%9F%BA%E7%A1%800x1(%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E4%BB%A3%E7%A0%81%E6%80%9D%E8%B7%AF)/" title="调试器基础0x1(环境配置-代码思路)">调试器基础0x1(环境配置-代码思路)</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-02 23:08:48"><i class="far fa-calendar-alt"></i>2021-04-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/yeanhoo/categories/C-C/">C\C++</a></span></div><div class="content">调试器基础0x1(环境配置/代码思路)编译选项：配置属性-&gt;高级-&gt;字符集-&gt;使用多字节字符集
+配置属性-&gt;C/C++-&gt;语言-&gt;符合模式-&gt;否
+反汇编引擎：Capstone反汇编程序框架4.0.2版！2020年5月8日发布
+用法参考 先知社区
+代码思路：
+创建/附加调试进程
+
+调试循环
+
+捕获异常消息
+
+异常处理
+
+交互
+
+
+难点：
+循环与处理
+
+下断与修复
+
+内存断点精准性
+
+
+开源代码：https://github.com/yeanhoo/Debugger
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/yeanhoo/2021/04/02/%E8%B0%83%E8%AF%95%E5%99%A8%E5%9F%BA%E7%A1%800x3(%E5%8F%8D%E6%B1%87%E7%BC%96%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8)/" title="调试器基础0x3(反汇编引擎使用)">     <img class="post_bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021_04_02_zl.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" alt="调试器基础0x3(反汇编引擎使用)"></a></div><div class="recent-post-info"><a class="article-title" href="/yeanhoo/2021/04/02/%E8%B0%83%E8%AF%95%E5%99%A8%E5%9F%BA%E7%A1%800x3(%E5%8F%8D%E6%B1%87%E7%BC%96%E5%BC%95%E6%93%8E%E4%BD%BF%E7%94%A8)/" title="调试器基础0x3(反汇编引擎使用)">调试器基础0x3(反汇编引擎使用)</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-04-02 23:08:48"><i class="far fa-calendar-alt"></i>2021-04-02</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/yeanhoo/categories/C-C/">C\C++</a></span></div><div class="content">调试器基础0x3(反汇编引擎使用)前言Capstone是一个轻量级的多平台，多体系结构的拆卸框架。
+
+Capstone反汇编程序框架4.0.2版！2020年5月8日发布
+
+多体系结构：Arm，Arm64（Armv8），BPF，以太坊虚拟机，M68K，M680X，Mips，MOS65XX，PowerPC，RISCV，Sparc，SystemZ，TMS320C64X，Web Assembly，XCore和X86（包括X86_64）（详细信息）。
+
+干净/简单/轻巧/直观的中性API。
+
+提供有关反汇编指令（其他人称为“分解器”）的详细信息。
+
+提供反汇编指令的一些语义，例如读取和写入的隐式寄存器列表。
+
+用纯C语言实现，具有D，Clojure，F＃，Common Lisp，Visual Basic，PHP，PowerShell，Haskell，Perl，Python，Ruby，C＃，NodeJS，Java，GO，C ++，OCaml，Lua，Rust，Delphi的绑定，免费提供Pascal和Vala。
+
+Windows*和 nix的本机支持（已确认Mac OSX，iOS，Android， ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/yeanhoo/2021/03/08/Flare_On_7/" title="Flare_On_7">     <img class="post_bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021-3-8-2.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" alt="Flare_On_7"></a></div><div class="recent-post-info"><a class="article-title" href="/yeanhoo/2021/03/08/Flare_On_7/" title="Flare_On_7">Flare_On_7</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-03-08 21:39:02"><i class="far fa-calendar-alt"></i>2021-03-08</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/yeanhoo/categories/%E6%8A%80%E5%B7%A7/">技巧</a></span></div><div class="content">Flare_On_7第七届年度Flare-On挑战赛
+0x1
+password验证逻辑,key=ghost
+1234def password_check(input):    altered_key = 'hiptu'    key = ''.join([chr(ord(x) - 1) for x in altered_key])    return input == key
+
+游戏逻辑,需要current_coins &gt;target_amount - 2**20，修改代码逻辑，给current_coins赋值即可
+12345678while not done:        target_amount = (2**36) + (2**35)        #current_coins = (2**36) + (2**35) +1        if current_coins &gt; (target_amount - 2**20):            while current_coins &gt;= (target_amount + 2**20):            ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/yeanhoo/2021/03/07/%E8%BE%93%E5%85%A5%E6%B3%95%E6%B3%A8%E5%85%A5/" title="输入法注入">     <img class="post_bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021-3-8-5.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" alt="输入法注入"></a></div><div class="recent-post-info"><a class="article-title" href="/yeanhoo/2021/03/07/%E8%BE%93%E5%85%A5%E6%B3%95%E6%B3%A8%E5%85%A5/" title="输入法注入">输入法注入</a><div class="article-meta-wrap"><time class="post-meta__date" title="发表于 2021-03-07 21:06:31"><i class="far fa-calendar-alt"></i>2021-03-07</time><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox article-meta__icon"></i><a class="article-meta__categories" href="/yeanhoo/categories/C-C/">C\C++</a></span></div><div class="content">输入法注入系统在切换进程时会自动将输入法ime文件加载到进程内存，因此可以利用这一点实现自己的ime文件
+不需要编写完整的输入法，只需要完成ImeInquire函数即可
+输入法代码
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#include&lt;windows.h&gt;#include&lt;imm.h&gt;#include&lt;immdev.h&gt;#pragma comment(lib,"imm32.lib")void MyFun();BOOL WINAPI DllMain(HMODULE hModule,DWORD reason_call,LPVOID lpReserved)&#123;	switch(reason_call)	&#123;	case DLL_PROCESS_ATTACH:		&#123;			WNDCLASSEXA wndClass = &#123; 0 &#125;;//输入法必须注册窗口类			wndClass.lpfnW ...</div></div></div><nav id="pagination"><div class="pagination"><span class="page-number current">1</span><a class="page-number" href="/yeanhoo/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/yeanhoo/page/5/">5</a><a class="extend next" rel="next" href="/yeanhoo/page/2/"><i class="fas fa-chevron-right fa-fw"></i></a></div></nav></div><div class="aside_content" id="aside_content"><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><img class="avatar-img" src="/yeanhoo/img/favicon.png" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Yeanhoo</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/yeanhoo/archives"><div class="headline">文章</div><div class="length_num">50</div></a></div><div class="card-info-data-item is-center">      <a href="/yeanhoo/tags"><div class="headline">标签</div><div class="length_num">89</div></a></div><div class="card-info-data-item is-center">     <a href="/yeanhoo/categories"><div class="headline">分类</div><div class="length_num">3</div></a></div></div><div class="card-info-bookmark is-center"><button class="button--animated" id="bookmark-it" title="加入书签"><i class="fas fa-bookmark"></i><span>加入书签</span></button></div><div class="card-info-social-icons is-center"><a class="social-icon" href="https://yeanhoo.github.io" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:yeanhoo@foxmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div></div><div class="card-widget card-announcement"><div class="card-content"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">Yeanhoo's Blog</div></div></div><div class="card-widget card-recent-post"><div class="card-content"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-recent-item"><div class="aside-recent-post"><a href="/yeanhoo/2021/05/24/%E6%B5%B7%E8%8E%B2%E8%8A%B1OceanLotus%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/0e16-ifrwayx3631565.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" title="海莲花OceanLotus样本分析" alt="海莲花OceanLotus样本分析"/></div><div class="aside-post-title"><div class="aside-post_title" href="/yeanhoo/2021/05/24/%E6%B5%B7%E8%8E%B2%E8%8A%B1OceanLotus%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/" title="海莲花OceanLotus样本分析">海莲花OceanLotus样本分析</div><time class="aside-post_meta post-meta__date" title="发表于 2021-05-24 01:44:59">2021-05-24</time></div></a></div><div class="aside-recent-post"><a href="/yeanhoo/2021/05/05/Ursnif%E7%BB%84%E7%BB%87EXCEL4.0%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021-05-05-1.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" title="Ursnif组织EXCEL4.0样本分析" alt="Ursnif组织EXCEL4.0样本分析"/></div><div class="aside-post-title"><div class="aside-post_title" href="/yeanhoo/2021/05/05/Ursnif%E7%BB%84%E7%BB%87EXCEL4.0%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/" title="Ursnif组织EXCEL4.0样本分析">Ursnif组织EXCEL4.0样本分析</div><time class="aside-post_meta post-meta__date" title="发表于 2021-05-05 22:11:06">2021-05-05</time></div></a></div><div class="aside-recent-post"><a href="/yeanhoo/2021/04/26/SSDT_HOOK/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/20210426-1zgf.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" title="SSDT_HOOK" alt="SSDT_HOOK"/></div><div class="aside-post-title"><div class="aside-post_title" href="/yeanhoo/2021/04/26/SSDT_HOOK/" title="SSDT_HOOK">SSDT_HOOK</div><time class="aside-post_meta post-meta__date" title="发表于 2021-04-26 23:07:23">2021-04-26</time></div></a></div><div class="aside-recent-post"><a href="/yeanhoo/2021/04/24/IDA--pthon%E5%AD%A6%E4%B9%A0--%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F%E5%8E%BB%E6%B7%B7%E6%B7%86/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021-04-24-2.jpg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" title="IDA--pthon学习--函数变量去混淆" alt="IDA--pthon学习--函数变量去混淆"/></div><div class="aside-post-title"><div class="aside-post_title" href="/yeanhoo/2021/04/24/IDA--pthon%E5%AD%A6%E4%B9%A0--%E5%87%BD%E6%95%B0%E5%8F%98%E9%87%8F%E5%8E%BB%E6%B7%B7%E6%B7%86/" title="IDA--pthon学习--函数变量去混淆">IDA--pthon学习--函数变量去混淆</div><time class="aside-post_meta post-meta__date" title="发表于 2021-04-24 21:29:25">2021-04-24</time></div></a></div><div class="aside-recent-post"><a href="/yeanhoo/2021/04/10/VAD%E6%A6%82%E5%BF%B5/"><div class="aside-post-cover"><img class="aside-post-bg" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021-04-24-1.jpeg" onerror="this.onerror=null;this.src='/yeanhoo/img/friend_404.gif'" title="VAD概念" alt="VAD概念"/></div><div class="aside-post-title"><div class="aside-post_title" href="/yeanhoo/2021/04/10/VAD%E6%A6%82%E5%BF%B5/" title="VAD概念">VAD概念</div><time class="aside-post_meta post-meta__date" title="发表于 2021-04-10 15:41:08">2021-04-10</time></div></a></div></div></div></div><div class="card-widget card-categories"><div class="card-content"><div class="item-headline"><i class="fas fa-folder-open"></i><span>分类</span></div><ul class="card-category-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/yeanhoo/categories/C-C/"><span class="card-category-list-name">C\C++</span><span class="card-category-list-count">35</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/yeanhoo/categories/%E6%8A%80%E5%B7%A7/"><span class="card-category-list-name">技巧</span><span class="card-category-list-count">11</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/yeanhoo/categories/%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/"><span class="card-category-list-name">汇编语言</span><span class="card-category-list-count">4</span></a></li>
+                       
+            </ul></div></div><div class="card-widget card-tags"><div class="card-content"><div class="item-headline"><i class="fas fa-tags"></i><span>标签</span></div><div class="card-tag-cloud"><a href="/yeanhoo/tags/AES-API%E8%B0%83%E7%94%A8/" style="font-size: 16px; color: #999">AES API调用</a> <a href="/yeanhoo/tags/APC%E6%B3%A8%E5%85%A5/" style="font-size: 16px; color: #999">APC注入</a> <a href="/yeanhoo/tags/ByPassUac/" style="font-size: 16px; color: #999">ByPassUac</a> <a href="/yeanhoo/tags/CTF/" style="font-size: 16px; color: #999">CTF</a> <a href="/yeanhoo/tags/CVE-2017-0101/" style="font-size: 16px; color: #999">CVE-2017-0101</a> <a href="/yeanhoo/tags/CVE-2017-7269/" style="font-size: 16px; color: #999">CVE-2017-7269</a> <a href="/yeanhoo/tags/DynameRIO/" style="font-size: 16px; color: #999">DynameRIO</a> <a href="/yeanhoo/tags/Flare-On-7/" style="font-size: 16px; color: #999">Flare_On_7</a> <a href="/yeanhoo/tags/Hook/" style="font-size: 16px; color: #999">Hook</a> <a href="/yeanhoo/tags/IDApython/" style="font-size: 16px; color: #999">IDApython</a> <a href="/yeanhoo/tags/InlineHook/" style="font-size: 16px; color: #999">InlineHook</a> <a href="/yeanhoo/tags/OceanLotus/" style="font-size: 16px; color: #999">OceanLotus</a> <a href="/yeanhoo/tags/PE%E6%96%87%E4%BB%B6/" style="font-size: 16px; color: #999">PE文件</a> <a href="/yeanhoo/tags/SSDTHOOK/" style="font-size: 16px; color: #999">SSDTHOOK</a> <a href="/yeanhoo/tags/TEB-PEB-LDR%E7%BB%93%E6%9E%84/" style="font-size: 16px; color: #999">TEB\PEB\LDR结构</a> <a href="/yeanhoo/tags/UAF/" style="font-size: 16px; color: #999">UAF</a> <a href="/yeanhoo/tags/Ursnif/" style="font-size: 16px; color: #999">Ursnif</a> <a href="/yeanhoo/tags/VAD/" style="font-size: 16px; color: #999">VAD</a> <a href="/yeanhoo/tags/VBA/" style="font-size: 16px; color: #999">VBA</a> <a href="/yeanhoo/tags/VEH%E5%BC%82%E5%B8%B8%E5%A4%84%E7%90%86/" style="font-size: 16px; color: #999">VEH异常处理</a> <a href="/yeanhoo/tags/WinDbg/" style="font-size: 22px; color: #99a9bf">WinDbg</a> <a href="/yeanhoo/tags/ZLIB%E5%BA%93/" style="font-size: 16px; color: #999">ZLIB库</a> <a href="/yeanhoo/tags/com%E6%8F%90%E5%8D%87%E7%BB%95%E8%BF%87/" style="font-size: 16px; color: #999">com提升绕过</a> <a href="/yeanhoo/tags/dll%E6%B3%A8%E5%85%A5/" style="font-size: 22px; color: #99a9bf">dll注入</a> <a href="/yeanhoo/tags/hash%E8%AE%A1%E7%AE%97/" style="font-size: 16px; color: #999">hash计算</a> <a href="/yeanhoo/tags/hook%E9%92%A9%E5%AD%90/" style="font-size: 16px; color: #999">hook钩子</a> <a href="/yeanhoo/tags/lighthouse/" style="font-size: 16px; color: #999">lighthouse</a> <a href="/yeanhoo/tags/ms17-017/" style="font-size: 16px; color: #999">ms17-017</a> <a href="/yeanhoo/tags/service-loader/" style="font-size: 16px; color: #999">service loader</a> <a href="/yeanhoo/tags/shellcode/" style="font-size: 16px; color: #999">shellcode</a> <a href="/yeanhoo/tags/socket%E9%80%9A%E4%BF%A1/" style="font-size: 16px; color: #999">socket通信</a> <a href="/yeanhoo/tags/tcp-socket/" style="font-size: 16px; color: #999">tcp socket</a> <a href="/yeanhoo/tags/use-After-Free%E6%BC%8F%E6%B4%9E/" style="font-size: 16px; color: #999">use After Free漏洞</a> <a href="/yeanhoo/tags/windbg/" style="font-size: 16px; color: #999">windbg</a> <a href="/yeanhoo/tags/windows-API/" style="font-size: 16px; color: #999">windows API</a> <a href="/yeanhoo/tags/windows-driver/" style="font-size: 16px; color: #999">windows driver</a> <a href="/yeanhoo/tags/wmi/" style="font-size: 16px; color: #999">wmi</a> <a href="/yeanhoo/tags/wmi-provider/" style="font-size: 16px; color: #999">wmi provider</a> <a href="/yeanhoo/tags/wmi-%E5%88%9B%E5%BB%BA%E8%BF%9B%E7%A8%8B/" style="font-size: 16px; color: #999">wmi 创建进程</a> <a href="/yeanhoo/tags/x86%E6%B1%87%E7%BC%96%E8%AF%AD%E8%A8%80/" style="font-size: 16px; color: #999">x86汇编语言</a></div></div></div><div class="card-widget card-archives"><div class="card-content"><div class="item-headline"><i class="fas fa-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/yeanhoo/archives/2021/05/"><span class="card-archive-list-date">五月 2021</span><span class="card-archive-list-count">2</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/yeanhoo/archives/2021/04/"><span class="card-archive-list-date">四月 2021</span><span class="card-archive-list-count">6</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/yeanhoo/archives/2021/03/"><span class="card-archive-list-date">三月 2021</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/yeanhoo/archives/2020/12/"><span class="card-archive-list-date">十二月 2020</span><span class="card-archive-list-count">4</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/yeanhoo/archives/2020/10/"><span class="card-archive-list-date">十月 2020</span><span class="card-archive-list-count">5</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/yeanhoo/archives/2020/09/"><span class="card-archive-list-date">九月 2020</span><span class="card-archive-list-count">8</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/yeanhoo/archives/2020/08/"><span class="card-archive-list-date">八月 2020</span><span class="card-archive-list-count">3</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/yeanhoo/archives/2020/07/"><span class="card-archive-list-date">七月 2020</span><span class="card-archive-list-count">17</span></a></li></ul></div></div><div class="card-widget card-webinfo"><div class="card-content"><div class="item-headline"><i class="fas fa-chart-line"></i><span>网站资讯</span></div><div class="webinfo"><div class="webinfo-item"><div class="webinfo-article-name">文章数目 :</div><div class="webinfo-article-count">50</div></div><div class="webinfo-item">      <div class="webinfo-site-uv-name">本站访客数 :</div><div class="webinfo-site-uv-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="webinfo-site-name">本站总访问量 :</div><div class="webinfo-site-pv-count" id="busuanzi_value_site_pv"></div></div></div></div></div></div></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Yeanhoo</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">Yeanhoo's Blogs</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/yeanhoo/js/utils.js"></script><script src="/yeanhoo/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/yeanhoo/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/yeanhoo/js/third-party/ClickShowText.js"></script><script src="https://cdn.jsdelivr.net/npm/typed.js"></script><script>var subtitleType = function () {
+  loadScript('https://sdk.jinrishici.com/v2/browser/jinrishici.js',function () {
+      var subtitleEffect = true
+      jinrishici.load(function (result) {
+        if (subtitleEffect) {
+          var sub = "".length == 0 ? new Array() : "".split(',')
+          var content = result.data.content
+          var both = sub.unshift(content)
+          var typed = new Typed('#subtitle', {
+            strings: sub,
+            startDelay: 300,
+            typeSpeed: 150,
+            loop: true,
+            backSpeed: 50,
+          })
+        } else {
+          document.getElementById('subtitle').innerHTML = result.data.content
+        }
+      })
+    }
+  )
+}
+window.addEventListener('load', subtitleType)
+</script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script></body></html>
