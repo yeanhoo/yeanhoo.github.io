@@ -1,0 +1,284 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>海莲花OceanLotus样本分析 | Yeanhoo's Blogs</title><meta name="description" content="海莲花OceanLotus样本分析基本信息​            APT32是一个至少从2014年开始活跃的威胁组织，别名海莲花(OceanLotus)。该组织针对多个私营企业、外国政府、持不同政见者和记者，重点关注越南、菲律宾、老挝和柬埔寨等东南亚国家。该组织是一个与越南政府利益一致的网络间谍组织。    FILENAME FILESIZE MD5    sample.exe 23487488"><meta name="keywords" content="海莲花OceanLotus样本分析"><meta name="author" content="Yeanhoo"><meta name="copyright" content="Yeanhoo"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/yeanhoo/img/favicon.png"><link rel="canonical" href="http://yeanhoo.gitee.io/2021/05/24/%E6%B5%B7%E8%8E%B2%E8%8A%B1OceanLotus%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="preconnect" href="//zz.bdstatic.com"/><meta name="360-site-verification" content="{&quot;theme_color&quot;:{&quot;enable&quot;:true,&quot;main&quot;:&quot;#05050C&quot;,&quot;paginator&quot;:&quot;#EEEEEE&quot;,&quot;button_hover&quot;:&quot;#FF7242&quot;,&quot;text_selection&quot;:&quot;#00c4b6&quot;,&quot;link_color&quot;:&quot;#99a9bf&quot;,&quot;meta_color&quot;:&quot;#858585&quot;,&quot;hr_color&quot;:&quot;#A4D8FA&quot;,&quot;code_foreground&quot;:&quot;#F47466&quot;,&quot;code_background&quot;:&quot;rgba(27, 31, 35, .05)&quot;,&quot;toc_color&quot;:&quot;#EBDEFE&quot;,&quot;blockquote_padding_color&quot;:&quot;#49b1f5&quot;,&quot;blockquote_background_color&quot;:&quot;#7EA9B5&quot;}}"/><meta property="og:type" content="article"><meta property="og:title" content="海莲花OceanLotus样本分析"><meta property="og:url" content="http://yeanhoo.gitee.io/2021/05/24/%E6%B5%B7%E8%8E%B2%E8%8A%B1OceanLotus%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/"><meta property="og:site_name" content="Yeanhoo's Blogs"><meta property="og:description" content="海莲花OceanLotus样本分析基本信息​            APT32是一个至少从2014年开始活跃的威胁组织，别名海莲花(OceanLotus)。该组织针对多个私营企业、外国政府、持不同政见者和记者，重点关注越南、菲律宾、老挝和柬埔寨等东南亚国家。该组织是一个与越南政府利益一致的网络间谍组织。    FILENAME FILESIZE MD5    sample.exe 23487488"><meta property="og:image" content="https://gitee.com/yeanhoo/BlogImages/raw/master/img/0e16-ifrwayx3631565.jpg"><meta property="article:published_time" content="2021-05-23T17:44:59.626Z"><meta property="article:modified_time" content="2021-05-26T08:15:49.594Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = '2'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/yeanhoo/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="next" title="Ursnif组织EXCEL4.0样本分析" href="http://yeanhoo.gitee.io/2021/05/05/Ursnif%E7%BB%84%E7%BB%87EXCEL4.0%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/yeanhoo/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: false,
+  copyright: undefined,
+  ClickShowText: {"text":"富强,民主,文明,和谐","fontSize":"15px"},
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: true,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isanchor: false    
+}</script><script>var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true
+  }</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img{
+  opacity: 1
+}
+</style></noscript><meta name="generator" content="Hexo 4.2.1"><link rel="alternate" href="/yeanhoo/atom.xml" title="Yeanhoo's Blogs" type="application/atom+xml">
+</head><body><div id="loading-box"><div class="loading-left-bg"></div><div class="loading-right-bg"></div><div class="spinner-box"><div class="configure-border-1"><div class="configure-core"></div></div><div class="configure-border-2"><div class="configure-core"></div></div><div class="loading-word">加载中...</div></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/yeanhoo/img/favicon.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/yeanhoo/archives/"><div class="headline">文章</div><div class="length_num">50</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/yeanhoo/tags/"><div class="headline">标签</div><div class="length_num">89</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/yeanhoo/categories/"><div class="headline">分类</div><div class="length_num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/yeanhoo/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/yeanhoo/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/yeanhoo/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div></div></div><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#海莲花OceanLotus样本分析"><span class="toc-number">1.</span> <span class="toc-text">海莲花OceanLotus样本分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#基本信息"><span class="toc-number">1.1.</span> <span class="toc-text">基本信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#流程图"><span class="toc-number">1.2.</span> <span class="toc-text">流程图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态分析"><span class="toc-number">1.3.</span> <span class="toc-text">动态分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#详细分析"><span class="toc-number">1.4.</span> <span class="toc-text">详细分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#tmp文件调试"><span class="toc-number">1.4.1.</span> <span class="toc-text">tmp文件调试</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#QQ-exe分析"><span class="toc-number">1.4.2.</span> <span class="toc-text">QQ.exe分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Bundle分析"><span class="toc-number">1.4.3.</span> <span class="toc-text">Bundle分析</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IOC"><span class="toc-number">1.5.</span> <span class="toc-text">IOC</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">1.6.</span> <span class="toc-text">总结</span></a></li></ol></li></ol></div></div></div><div id="body-wrap"><div id="web_bg" data-type="color"></div><header class="post-bg" id="page-header" style="background-image: url(https://gitee.com/yeanhoo/BlogImages/raw/master/img/0e16-ifrwayx3631565.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/yeanhoo/">Yeanhoo's Blogs</a></span><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/yeanhoo/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/yeanhoo/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/yeanhoo/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">海莲花OceanLotus样本分析</div></div><div id="post-meta"><div class="meta-firstline"><time class="post-meta__date"><span class="post-meta__date-created" title="发表于 2021-05-24 01:44:59"><i class="far fa-calendar-alt fa-fw"></i> 发表于 2021-05-24</span><span class="post-meta__separator">|</span><span class="post-meta__date-updated" title="更新于 2021-05-26 16:15:49"><i class="fas fa-history fa-fw"></i> 更新于 2021-05-26</span></time><span class="post-meta__categories"><span class="post-meta__separator">|</span><i class="fas fa-inbox fa-fw post-meta__icon"></i><a class="post-meta__categories" href="/yeanhoo/categories/%E6%8A%80%E5%B7%A7/">技巧</a></span></div><div class="meta-secondline"> </div><div class="meta-thirdline"><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta__icon"></i><span>阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-commentcount"></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="海莲花OceanLotus样本分析"><a href="#海莲花OceanLotus样本分析" class="headerlink" title="海莲花OceanLotus样本分析"></a>海莲花OceanLotus样本分析</h2><h3 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h3><p>​            <a href="https://attack.mitre.org/groups/G0050" target="_blank" rel="noopener">APT32</a>是一个至少从2014年开始活跃的威胁组织，别名海莲花(OceanLotus)。该组织针对多个私营企业、外国政府、持不同政见者和记者，重点关注越南、菲律宾、老挝和柬埔寨等东南亚国家。该组织是一个与越南政府利益一致的网络间谍组织。</p>
+<table>
+<thead>
+<tr>
+<th align="center">FILENAME</th>
+<th align="center">FILESIZE</th>
+<th align="center">MD5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">sample.exe</td>
+<td align="center">23487488 bytes</td>
+<td align="center">09D115A3B45694F8124CD8077D51A2EC</td>
+</tr>
+</tbody></table>
+<h3 id="流程图"><a href="#流程图" class="headerlink" title="流程图"></a>流程图</h3><p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210526155604064.png" alt="image-20210526155604064"></p>
+<h3 id="动态分析"><a href="#动态分析" class="headerlink" title="动态分析"></a>动态分析</h3><p>使用<code>ProcMon</code>进行抓包,样本释放名为<code>A553.tmp</code>的文件到环境变量TEMP目录，后经查看释放文件是样本母体拷贝到了TEMP目录</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210509173314573.png" alt></p>
+<p>释放后执行释放的<code>A553.tmp</code>文件，释放体会将样本母体替换为同名的真实docx文档，并通过注册表查询word文档关联的默认打开程序，使用默认程序打开docx文档迷惑用户</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210509173650605.png" alt></p>
+<h3 id="详细分析"><a href="#详细分析" class="headerlink" title="详细分析"></a>详细分析</h3><p>样本入口点存在混淆代码，干扰分析与调试，排除无意义的跳转逻辑，剩下一个真实的条件跳转，根据判断条件，基本可以断定这个混淆会循环<code>0xF5B2C</code>次，在其地址后下断，直接跑即可到达核心代码位置</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021-05-09-01.png" alt></p>
+<p>将内存页起始地址为<code>0x45A000</code>,大小为<code>0x5DC00</code>的内存属性修改为<code>PAGE_READWRITE</code></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210509170257930.png" alt></p>
+<p>解密代码，将<code>0x45A000</code>地址内容使用<code>bswap</code>指令进行字节次序变反,并将相邻的两个四字节进行位置调换</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210509171013024.png" alt></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210509171132188.png" alt></p>
+<p>解密完成，再次调用<code>VirtualProtect</code>将内存属性修改为<code>PAGE_EXECUTE_READ</code></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210509171843517.png" alt></p>
+<p>到这里后发现其实前面的代码类似于一个自写的混淆加密壳，此时才来到程序真正的入口点，使用<code>ODdump</code>功能+<code>ImprotREC</code>对进程进行脱壳修复</p>
+<p>对修复后的程序进行分析，发现程序中仍嵌有大量混淆代码</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510002427699.png" alt></p>
+<p>来到核心逻辑，首先获取计算机名称</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510003016656.png" alt></p>
+<p>将计算机名中大写转换为小写，根据代码特征可以看出该代码为<a href="https://github.com/Chuyu-Team/VC-LTL" target="_blank" rel="noopener">GitHUb开源VC-LTL项目</a>,该项目是基于MS VCRT的开源CRT库，可减少程序二进制文件的大小并告别Microsoft运行时DLL，例如msvcr120.dll，api-ms-win-crt-time-l1-1-0.dll和其他依赖项</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510004053759.png" alt></p>
+<p>这样一来，增加了样本分析难度，继续跟进时发现混淆的一个规律，在函数开头时便进行混淆跳转，而最后还是会回到函数内部执行后续调用，下图函数为例，在函数入口点跳飞，之后跳转回<code>call memcpy</code>处</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510005528893.png" alt></p>
+<p>混淆太多了，程序中存在很多无意义的条件跳转以及<code>push+retn</code>,短时间内去除混淆是不可能了，为了节省时间，想个懒办法，编写OD脚本，在所有的<code>call</code>指令断下,断下后再根据IDA分析是否需要进入call，这样能缩短一部分时间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">FIND:</span><br><span class="line">  STI</span><br><span class="line">CASE1:</span><br><span class="line">  CMP [eip],#E8#,1</span><br><span class="line">  JNE CASE2   </span><br><span class="line">  pause</span><br><span class="line">CASE2:</span><br><span class="line">  CMP [eip],#FF#,1</span><br><span class="line">  JNE CASE3  </span><br><span class="line">  pause  </span><br><span class="line">CASE3:</span><br><span class="line">  CMP [eip],#9A#,1</span><br><span class="line">  JNE FIND   </span><br><span class="line">  pause</span><br></pre></td></tr></table></figure>
+
+<p>调用<code>LoadLibraryW</code>加载<code>Ole32.dll</code></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510015559558.png" alt></p>
+<p>调用<code>GetProcAddress</code>获取<code>CoInitialize</code>,在这里发现该样本一个特征，每次关键函数调用都是在异常<code>handler</code>里进行的，猜测该混淆模式就是利用异常执行真正核心代码，而正常程序流程都是混淆代码</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510020047249.png" alt></p>
+<p>判断程序运行参数是否为<code>--splash</code>,这里是在确认是样本母体还是后缀为tmp的拷贝体</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510021044977.png" alt></p>
+<p>程序开始循环申请内存，申请大小从1字节开始依次递增，这仍是混淆的一部分，但申请内存就会使用call执行，之前的OD脚本貌似不是很管用了，修改脚本再试试</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510022314827.png" alt></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">FIND:</span><br><span class="line">  STI</span><br><span class="line">CASE1:</span><br><span class="line">  CMP [eip],#E8#,1</span><br><span class="line">  JNE CASE2   </span><br><span class="line">  CMP eip,468F11&#x2F;&#x2F;new</span><br><span class="line">  JE NOTFIN</span><br><span class="line">  CMP eip,469906&#x2F;&#x2F;memcpy</span><br><span class="line">  JE NOTFIN</span><br><span class="line">  CMP eip,469517&#x2F;&#x2F;delete</span><br><span class="line">  JE NOTFIN</span><br><span class="line">  CMP eip,4697b3&#x2F;&#x2F;hunxiao2</span><br><span class="line">  JE FIND</span><br><span class="line">  CMP eip,486980&#x2F;&#x2F;hunxiao1</span><br><span class="line">  JE FIND</span><br><span class="line">  pause</span><br><span class="line">CASE2:</span><br><span class="line">  CMP [eip],#FF#,1</span><br><span class="line">  JNE CASE3  </span><br><span class="line">  CMP eip,48762d</span><br><span class="line">  JE FIND</span><br><span class="line">  pause  </span><br><span class="line">CASE3:</span><br><span class="line">  CMP [eip],#9A#,1</span><br><span class="line">  JNE FIND   </span><br><span class="line">  pause</span><br><span class="line">NOTFIN:</span><br><span class="line">  STO</span><br><span class="line">  jmp FIND</span><br></pre></td></tr></table></figure>
+
+<p>调用服务操作系列API,判断是否存在名为<code>Schedule</code>的服务</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510181002115.png" alt></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510181412220.png" alt></p>
+<p>不存在<code>Schedule</code>服务，获取TEMP目录路径,创建TEMP文件</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510181932332.png" alt></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510182203510.png" alt></p>
+<p>获取当前进程名称</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510183003150.png" alt="image-20210510183003150"></p>
+<p>调用windows提供加密系列API，生成128字节随机密钥</p>
+<blockquote>
+<p>75CC1526DC9E6F591AF2C508C636FFEC66DE8594736B5D7C947E549A0B2AC0720E84E32B30F78148972030677A35B2350C1071A4DA378F345E432FBAE3DF0BEA</p>
+</blockquote>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510183450290.png" alt="image-20210510183450290"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510183938498.png" alt="image-20210510183938498"></p>
+<p>调用文件操作系列API ，将样本母体读入内存</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510185023137.png" alt="image-20210510185023137"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510185102176.png" alt="image-20210510185102176"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210510185616029.png" alt="image-20210510185616029"></p>
+<p>再次调用文件操作系列API ，将母体写入前述创建的tmp文件中</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210511165925818.png" alt="image-20210511165925818"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210511170404432.png" alt="image-20210511170404432"></p>
+<p>拼接命令行参数并带参创建进程执行tmp文件，随后退出主进程</p>
+<p>tmp进程参数如下</p>
+<blockquote>
+<p>[tmp文件路径] + [-–splansh] + [样本母体路径]+ [生成的随机密钥]</p>
+</blockquote>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210511182824085.png" alt="image-20210511182824085"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210511183329693.png" alt="image-20210511183329693"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210511183509345.png" alt="image-20210511183509345"></p>
+<h4 id="tmp文件调试"><a href="#tmp文件调试" class="headerlink" title="tmp文件调试"></a>tmp文件调试</h4><p>设置镜像劫持后调试子程序，来到判断<code>--splash</code>参数之后的逻辑</p>
+<p>通过API <code>PathFileExistsW</code>判断样本母体是否存在</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210511191252702.png" alt></p>
+<p>这里发现一种之前从未见过的检测镜像劫持的方法，在样本母体中使用<code>CreateProcessW</code>创建子进程时,传入参数如下，红框中的字节码20，原本传入的是09，而在使用镜像劫持时发现参数变成了20，在调用<code>PathFileExistsW</code>判断样本母体是否存在时，09会被识别为结束符号，可以正确检测到样本存在，而20会将生成的随机密钥和文件路径拼接成一个字符串从而导致检测失败</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210524130851762.png" alt="image-20210524130851762"></p>
+<p>调用资源操作系列API，将资源名称为0x65的内容加载到内存并进行解密，将解密的内容重写回样本母体文件(解密的内容为正常的docx文件)</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210512104253276.png" alt="image-20210512104253276"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210512104102595.png" alt="image-20210512104102595"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210512104144523.png" alt="image-20210512104144523"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210524141032691.png" alt="image-20210524141032691"></p>
+<p>再次调用资源操作系列API，将资源名称为0x7的内容加载到内存，从资源中取出文件后缀字符串”.docx”,修改样本母体后缀为”.docx”，并打开docx文件迷惑用户</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210524150923714.png" alt="image-20210524150923714"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210524151154358.png" alt="image-20210524151154358"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210524151325794.png" alt="image-20210524151325794"></p>
+<p>通过特权指令检测虚拟机环境</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210514124106512.png" alt="image-20210514124106512"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210514130309011.png" alt="image-20210514130309011"></p>
+<p>初始化sha256哈希算法和拍进程拍照，后续并未使用</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210524184829644.png" alt="image-20210524184829644"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210524190409311.png" alt="image-20210524190409311"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525010718652.png" alt="image-20210525010718652"></p>
+<p>动态获取<code>CreateDirectoryW</code>函数地址并调用,判断所要释放文件的路径是否为根路径</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525021258054.png" alt="image-20210525021258054"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525022153229.png" alt="image-20210525022153229"></p>
+<p>解密并释放</p>
+<p>%appdata%/Tencent/QQ/qq.exe与</p>
+<p>%appdata%/Tencent/QQ/plugin/Com.Tencnt.DirectShow/bundle.rdb </p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525023546007.png" alt="image-20210525023546007"></p>
+<p>修改注册表项</p>
+<p>HKCU/SOFTWARE/mspaint–&gt;…Com.Tencent.DirectShow\Bundle.rdb</p>
+<p>HKLM/SOFTWARE/mspaint–&gt;…Com.Tencent.DirectShow\Bundle.rdb</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525025703894.png" alt="image-20210525025703894"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525025743642.png" alt="image-20210525025743642"></p>
+<p>创建两条计划任务每15分钟执行一次释放体名为qq.exe的程序</p>
+<blockquote>
+<p>QQ International Automatic Updates:<br> Intelligently select the best update type for QQ when available.<br> Download and install updates automatically to save time and effort.<br> Keep the lastest version, enjoy the best performance!</p>
+</blockquote>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525154646494.png" alt="image-20210525154646494"></p>
+<h4 id="QQ-exe分析"><a href="#QQ-exe分析" class="headerlink" title="QQ.exe分析"></a>QQ.exe分析</h4><p>定时条件出发后会执行QQ.exe,同样的混淆手法，这里简单使用<code>API monitor</code>进行分析，首先是动态获取后续要用的API</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525163816338.png" alt="image-20210525163816338"></p>
+<p>在程序运行目录创建QQ.exe.db，后将所运行QQ.exe写入到文件，并将QQ.exe.db重命名为QQ.exe.bak，随后动态修改QQ.exe静态文件内容</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210526005306927.png" alt="image-20210526005306927"></p>
+<p>随后通过注册表读取前述释放bundle.rdb路径</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525163947112.png" alt="image-20210525163947112"></p>
+<p>大量混淆过后带参执行QQ.exe，参数为<code>rundll32.exe /m</code>(这里又是一个坑，如果设置镜像劫持，CreateProcess将导致启动系统自带的rundll32.exe，暂不深入研究)</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525165613474.png" alt="image-20210525165613474"></p>
+<p>创建msiexec.exe进程</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525171917035.png" alt="image-20210525171917035"></p>
+<p>再次动态获取函数地址</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525172204242.png" alt="image-20210525172204242"></p>
+<p>注入shellcode到msiexec进程，第一次注入内容为bundle.rdb路径,第二次为要执行的代码</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210525172645639.png" alt="image-20210525172645639"></p>
+<p>shellcode比较简明，直接调用<code>LoadLibraryW</code>加载Bundle.rdb</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210526020421737.png" alt="image-20210526020421737"></p>
+<h4 id="Bundle分析"><a href="#Bundle分析" class="headerlink" title="Bundle分析"></a>Bundle分析</h4><p>首先是动态获取API <code>IsProcessorFeaturePresent</code>进行反调试</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210526023729346.png" alt="image-20210526023729346"></p>
+<p>解析C2地址，尝试循环连接到不同的C2服务器</p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210526024922977.png" alt="image-20210526024922977"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210526024945888.png" alt="image-20210526024945888"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210526025040090.png" alt="image-20210526025040090"></p>
+<p><img src= "/yeanhoo/img/loading.gif" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/image-20210526025152972.png" alt="image-20210526025152972"></p>
+<p>C2均已失效，无法获取后续模块，Bundle.rdb其实就是用来与C2进行交互的后门模块</p>
+<h3 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h3><table>
+<thead>
+<tr>
+<th align="center">NAME</th>
+<th align="center">MD5</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">QQ.EXE</td>
+<td align="center">52E69E757AA2A8E001E410AD6372D620</td>
+</tr>
+<tr>
+<td align="center">bundle.rbd</td>
+<td align="center">3B4BB69D1D61FBE215CAD7D833026D4C</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="center">C2</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">blog.panggin[.]org:27408</td>
+</tr>
+<tr>
+<td align="center">yii.yiihao126[.]net:40005</td>
+</tr>
+<tr>
+<td align="center">share.codehao[.]net:80</td>
+</tr>
+<tr>
+<td align="center">yii.yiihao126[.]net:443</td>
+</tr>
+</tbody></table>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>​    后门功能已分析完毕，由于C2失效无法跟进后续行为，这个样本的行为从用户角度来看一切看似很正常，像是QQ的定时自动更新功能一样，使用msiexec安装新的QQ程序。但实质是注入恶意模块到msiexec与C2建立通信。海莲花的样本使用的反分析反调试手段越来越多，分析起来难度较大，其实样本核心逻辑并不会很多，但是单从样本大小来看，一个文件几十兆，可想而知，其中参杂了很多无效指令和函数进行混淆，并动态解密各种代码数据。</p>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Yeanhoo</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yeanhoo.gitee.io/2021/05/24/%E6%B5%B7%E8%8E%B2%E8%8A%B1OceanLotus%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/">http://yeanhoo.gitee.io/2021/05/24/%E6%B5%B7%E8%8E%B2%E8%8A%B1OceanLotus%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yeanhoo.gitee.io" target="_blank">Yeanhoo's Blogs</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/yeanhoo/tags/%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/">样本分析</a><a class="post-meta__tags" href="/yeanhoo/tags/%E6%B5%B7%E8%8E%B2%E8%8A%B1/">海莲花</a><a class="post-meta__tags" href="/yeanhoo/tags/OceanLotus/">OceanLotus</a></div><div class="post_share"><div class="addthis_inline_share_toolbox"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=yeanhoo" async="async"></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/yeanhoo/2021/05/05/Ursnif%E7%BB%84%E7%BB%87EXCEL4.0%E6%A0%B7%E6%9C%AC%E5%88%86%E6%9E%90/"><img class="next-cover" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021-05-05-1.jpg" onerror="onerror=null;src='/yeanhoo/img/friend_404.gif'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Ursnif组织EXCEL4.0样本分析</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/yeanhoo/2021/05/05/Ursnif组织EXCEL4.0样本分析/" title="Ursnif组织EXCEL4.0样本分析"><img class="relatedPosts_cover" data-src="https://gitee.com/yeanhoo/BlogImages/raw/master/img/2021-05-05-1.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2021-05-05</div><div class="relatedPosts_title">Ursnif组织EXCEL4.0样本分析</div></div></a></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Yeanhoo</div><div class="framework-info"><span>驱动 </span><a href="https://hexo.io" target="_blank" rel="noopener"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a href="https://github.com/jerryc127/hexo-theme-butterfly" target="_blank" rel="noopener"><span>Butterfly</span></a></div><div class="footer_custom_text">Yeanhoo's Blogs</div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><button id="font_plus" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" title="缩小字体"><i class="fas fa-minus"></i></button></div><div id="rightside-config-show"><button id="rightside_config" title="设置"><i class="fas fa-cog"></i></button><button class="close" id="mobile-toc-button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/yeanhoo/js/utils.js"></script><script src="/yeanhoo/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="/yeanhoo/js/third-party/activate-power-mode.js"></script><script>POWERMODE.colorful = true;
+POWERMODE.shake = true;
+document.body.addEventListener('input', POWERMODE);
+</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js" async></script><script src="/yeanhoo/js/third-party/ClickShowText.js"></script><script>var endLoading = function () {
+  document.body.style.overflow = 'auto';
+  document.getElementById('loading-box').classList.add("loaded")
+}
+window.addEventListener('load',endLoading)</script></body></html>
